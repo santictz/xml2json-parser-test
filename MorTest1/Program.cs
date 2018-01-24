@@ -32,31 +32,22 @@ namespace Moravia.Homework
 
                 var serializedDoc = JsonConvert.SerializeObject(doc);
 
-                /*var targetStream = File.Open(targetFileName, FileMode.Create, FileAccess.Write);
-                var sw = new StreamWriter(targetStream);
-                sw.Write(serializedDoc);
-                */
-                File.WriteAllText(targetFileName, serializedDoc);
+                var targetStream = File.Open(targetFileName, FileMode.Create, FileAccess.Write);
+                using (StreamWriter sw = new StreamWriter(targetStream))
+                {
+                    sw.Write(serializedDoc);
+                }
+                //var sw = new StreamWriter(targetStream); -> Original method
+                //sw.Write(serializedDoc);
+
+
+                //File.WriteAllText(targetFileName, serializedDoc); -> Method 2
+
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-
-            /* var xdoc = XDocument.Parse(input);
-            var doc = new Document
-            {
-                Title = xdoc.Root.Element("title").Value,
-                Text = xdoc.Root.Element("text").Value
-            };
-
-            var serializedDoc = JsonConvert.SerializeObject(doc);
-
-            var targetStream = File.Open(targetFileName, FileMode.Create, FileAccess.Write);
-            var sw = new StreamWriter(targetStream);
-            sw.Write(serializedDoc);
-            */
-
         }
     }
 }
