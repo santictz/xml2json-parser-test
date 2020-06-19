@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "XmlToJsonCore": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\SantiC\\Dev\\csharp\\projects\\xml2json-parser-test\\output\\src C:\\Users\\SantiC\\Dev\\csharp\\projects\\xml2json-parser-test\\output\\tgt"
+    }
+  }
+}
